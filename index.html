@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Erklärungen für HTML</title>
+
+	<style>
+		.scroll-bar::-webkit-scrollbar {
+			width: 3px;
+		}
+
+		.scroll-bar::-webkit-scrollbar-track {
+			background: #c3b8d0;
+			border-radius: 5px;
+		}
+
+		.scroll-bar::-webkit-scrollbar-thumb {
+			background: #1C4ED8;
+			border-radius: 5px;
+			border: 2px solid #555777;
+		}
+
+		* {
+			scrollbar-width: thin;
+			scrollbar-color: #1C4ED8 #c3b8d0;
+		}
+
+		html {
+			scroll-behavior: smooth;
+		}
+
+		html,
+		body {
+			margin: 0px;
+			padding: 0px;
+			font-size: 20px;
+		}
+
+		.body-content {
+			display: flex;
+			flex-direction: column;
+		}
+
+		.header-main-container {
+			width: 100%;
+		}
+
+		.header {
+			width: 100%;
+			height: 100px;
+			background: linear-gradient(to top right, #98ff98, #d0f0c0);
+			display: flex;
+			justify-content: center;
+			text-align: center;
+			align-items: center;
+		}
+
+		.body {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			background: linear-gradient(180deg, #d6b5e3, #ad67b2);
+		}
+
+		.second-body {
+			display: flex;
+			flex-direction: column;
+			width: 1000px;
+			height: 100vh;
+			padding: 30px;
+			border: solid 3px;
+			border-style: dashed;
+			background: linear-gradient(180deg, #8175d6, #e5e1ff);
+			overflow: auto;
+		}
+
+		h1 {
+			text-align: center;
+		}
+
+		h3 {
+			text-decoration: underline;
+			margin: 0px;
+			padding: 0px;
+		}
+
+		.d-none {
+			display: none !important;
+		}
+
+		.main-div-container-one {
+			display: flex;
+			justify-content: center;
+		}
+
+		#div-container-one {
+			width: 100%;
+			height: auto;
+		}
+
+		.container-one {
+			background-color: green;
+			border: solid red 2px;
+			width: 491px;
+			height: 50px;
+		}
+
+		.container-two {
+			background-color: red;
+			border: solid green 2px;
+			width: 491px;
+			height: 50px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.em {
+			border: solid 2px;
+			padding-inline: 20px;
+			background: linear-gradient(270deg, #75add6, #e5e1ff);
+		}
+
+		.overlay-main-container {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background: rgba(0, 0, 0, 0.5);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			z-index: 1000;
+		}
+
+		#dialog {
+			background: linear-gradient(145deg, #fefefe, #eab5b5);
+			width: 960px;
+			height: 655px;
+			padding: 15px;
+			border-radius: 10px;
+			box-shadow: 0 0px 65px 20px rgba(0, 0, 0, 1.0);
+			overflow: auto;
+		}
+
+		#overlay {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient(145deg, #eab5b5, #fefefe);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		@media(max-width: 1170px) {
+			.second-body {
+				width: 800px;
+			}
+
+			#dialog {
+				width: 800px;
+			}
+
+			.container-one,
+			.container-two {
+				width: 391px;
+			}
+		}
+
+		@media(max-width: 965px) {
+
+			.container-one,
+			.container-two {
+				width: 291px;
+			}
+
+			.second-body {
+				width: 600px;
+			}
+
+			#dialog {
+				width: 700px;
+			}
+		}
+
+		@media(max-width: 885px) {
+			.second-body {
+				width: 500px;
+			}
+
+			.container-one,
+			.container-two {
+				width: 241px;
+			}
+
+			#dialog {
+				width: 600px;
+				font-size: 18px;
+			}
+		}
+
+		@media(max-width: 685px) {
+			.second-body {
+				width: 450px;
+			}
+
+			.container-one,
+			.container-two {
+				width: 216px;
+			}
+
+			#dialog {
+				width: 400px;
+				font-size: 17px;
+			}
+		}
+
+		@media(max-width: 600px) {
+			.second-body {
+				width: 400px;
+				padding: 15px;
+			}
+
+			.container-one,
+			.container-two {
+				width: 191px;
+			}
+
+			h1 {
+				font-size: 28px;
+			}
+		}
+
+		@media(max-width: 525px) {
+			.second-body {
+				width: 365px;
+			}
+
+			.container-one,
+			.container-two {
+				width: 173px;
+			}
+		}
+
+		@media(max-width: 485px) {
+			.second-body {
+				width: 350px;
+			}
+
+			.container-one,
+			.container-two {
+				width: 166px;
+			}
+
+			#dialog {
+				width: 300px;
+				font-size: 16px;
+			}
+		}
+
+		@media(max-width: 400px) {
+			.second-body {
+				width: 260px;
+			}
+
+			.container-one,
+			.container-two {
+				width: 121px;
+			}
+
+			h1 {
+				font-size: 25px;
+			}
+
+			#dialog {
+				width: 270px;
+			}
+		}
+
+		@media(max-width: 385px) {
+			.second-body {
+				width: 260px;
+			}
+
+			#dialog {
+				width: 250px;
+			}
+		}
+
+		#div-container-two {
+			width: 100%;
+			height: auto;
+			flex-direction: column;
+		}
+
+		.d-flex {
+			display: flex;
+		}
+
+		#button-before-click,
+		#button-after-click,
+		button {
+			cursor: pointer;
+			border-radius: 5px;
+			width: 200px;
+		}
+
+		pre {
+			white-space: pre-wrap;
+			word-wrap: break-word;
+			tab-size: 2;
+		}
+	</style>
+
+	<script>
+
+		function toggleContentBoltItalic() {
+			let boltItalic = document.getElementById("bolt-italic");
+			boltItalic.classList.toggle("d-none");
+		}
+
+		function toggleContentLinebreake() {
+			let linebreake = document.getElementById("linebreake");
+			linebreake.classList.toggle("d-none");
+		}
+
+		function toggleContentPTag() {
+			let pTag = document.getElementById("p-tag");
+			pTag.classList.toggle("d-none");
+		}
+
+		function toggleContentLineThrue() {
+			let lineThrue = document.getElementById("line-thrue");
+			lineThrue.classList.toggle("d-none");
+		}
+
+		function toggleContentSpaceUsing() {
+			let spaceUsing = document.getElementById("space-using");
+			spaceUsing.classList.toggle("d-none");
+		}
+
+		function toggleExample() {
+			let changeDivOne = document.getElementById("div-container-one");
+			let changeDivTwo = document.getElementById("div-container-two");
+
+			changeDivOne.classList.toggle("d-none");
+			changeDivTwo.classList.toggle("d-none");
+			changeDivTwo.classList.toggle("d-flex");
+		}
+
+		function toggleDialog() {
+			let overlay = document.getElementById("overlay");
+			let codeBlock = document.getElementById("codeBlock");
+			let rawHTML = document.documentElement.outerHTML;
+			let changedHTML = rawHTML.replace(/</g, "<").replace(/>/g, ">");
+
+			overlay.classList.toggle("d-none");
+			codeBlock.textContent = changedHTML;
+		}
+
+	</script>
+
+</head>
+
+<body id="on-top" class="body">
+	<div class="body-content">
+		<div class="header-main-container">
+			<header class="header">
+				<h1>Übungen <span style="color: rebeccapurple;">HTML</span> und <span
+						style="color:palevioletred">CSS</span>
+				</h1>
+			</header>
+		</div><br>
+		<div class="second-body">
+
+			<h3>Dick und Kursiv</h3><br>
+
+			<button onclick="toggleContentBoltItalic()">Anzeigen / Ausblenden</button><br>
+			<span id="bolt-italic" class="d-none">
+				<p>
+					<b>Hier steht ein Text in dicker <i>Schrift</i> und das Wort <i>Schrift</i> ist dick und
+						kursiv.</b><br>
+					Einen <b>Text</b> oder sogar nur einzelne B<b>u</b>chsta<b>b</b>en, kann ich <b>dick</b>
+					schreiben,<br>
+					indem ich ein &lt; b &gt; vor und ein &lt; /b &gt; nach den Buchstaben, oder das
+					Wort schreibe.<br><br>
+					Kursiv schreibe ich, wenn ich ein &lt; i &gt; vor das Wort, oder den Buchstaben schreibe und
+					dahinter dann &lt; /i &gt; <br>
+				</p>
+			</span>
+
+			<h3>Zeilenumbruch</h3><br>
+			<button onclick="toggleContentLinebreake()">Anzeigen / Ausblenden</button><br>
+			<span id="linebreake" class="d-none">
+				Dieser Text ist mit mehreren <s>Einbru</s> Umbrüchen versehen, die ich mit &lt;br&gt;
+				eingeleitet habe. <br>
+				So entsteht kein Absatz und man kann gut sehen, dass dieser Text hier zusammen gehört. <br>
+				Merke: &lt;br&gt; benötigt kein schließenden Tag.
+				</p>
+			</span>
+
+			<h3>p-Tag</h3><br>
+			<button onclick="toggleContentPTag()">Anzeigen / Ausblenden</button><br>
+			<span id="p-tag" class="d-none">
+				<p>
+					Dieser Text steht nach einem Absatz. Ein Absatz entsteht, wenn man den Text in einem &lt p &gt -Tag
+					&lt
+					/p
+					&gt
+					schreibt.
+				</p>
+				<p>
+					Ein &lt; p &gt; -Tag &lt; /p &gt; hilft uns also einen Text besser zu gestalten.
+				</p>
+			</span>
+
+			<h3>Durchgestrichen</h3><br>
+			<button onclick="toggleContentLineThrue()">Anzeigen / Ausblenden</button><br>
+			<span id="line-thrue" class="d-none">
+				Weiter oben ist ein Wort durchgestrichen dargestellt. <br>
+				Das funktioniert, wie bei den anden veränderten Worten, nur das ich ein &lt; s &gt; <s>vor und
+					ein</s> &lt; /s &gt; hinter das Wort, oder einen Buchstaben schreibe.</span><br>
+
+			<h3>Platznutzung</h3><br>
+			<button onclick="toggleContentSpaceUsing()">Anzeigen / Ausblenden</button><br>
+			<span id="space-using" class="d-none">
+				<p>
+					Jeder &lt; p &gt; -Tag &lt; /p &gt; , sowie alle anderen Elemente, wie
+					&lt; div &gt; (Container) , &lt; h1-h6 &gt; (Überschriften)</code>, &lt; ul/ol &gt; (ungeordnete
+					Liste / geordnete Liste) ,
+					&lt; table &gt; (Tabelle) <br>
+					nehmen im Code immer die volle Breite ein.<br>
+					Hier ein Beispiel eines "div-Containers".
+				</p>
+				<p>
+					Warum stehen sie nicht nebeneinander? Sie hätten doch den Platz dazu! <br>
+					Genau, weil sie die gesamte Breite des verfügbaren Platzes für sich reservieren.
+				</p>
+				<div class="main-div-container-one">
+					<div id="div-container-one">
+						<div class="container-one">
+						</div>
+
+
+						<div class="container-two">
+							<button id="button-before-click" onclick="toggleExample()">Klick zum Ändern</button>
+						</div>
+					</div>
+				</div>
+
+
+				<div id="div-container-two" class="d-none">
+					<div style="display: flex;">
+						<div style="display: flex;">
+							<div class="container-one">
+							</div>
+
+
+
+							<div class="container-two">
+								<button id="button-after-click" onclick="toggleExample()">Klick zum Ändern</button>
+							</div>
+						</div>
+					</div>
+					<div class="em">
+						<em><br>Wenn man beide Container in anderen Übercontainern verschachtelt und diesem dann im
+							<b><i>CSS</i></b>
+							spezielle
+							Eigenschaften, wie <br>display: flex;<br> justify-content: center;<br> flex-direction:
+							column;
+							...usw.<br> zuteilt, dann gibt man ihnen Raum
+							zum entfalten solange Platz genug da ist.<br><br>
+							<b><i>CSS</i></b> ist wie eine neue Programmiersprache, nur das ich damit nichts anderes
+							mache,<br>
+							als meinen HTML-Code zu verschönern und die Website übersichtlich zu gestalten.<br><br>
+							PS. die Buttons funktionieren nur, weil sie einen Code (Script) ausführen, der mit
+							<b><i>Java Script</i></b> geschrieben wurde.<br>
+							<b><i>Java Script</i></b> macht eine Website interaktiv.<br><br></em>
+					</div>
+				</div>
+
+				<p>
+					"Inline-Elemente" wie <a href="#on-top"><i>"Links"</i></a> &lt; a &gt; , oder "span"
+					&lt; span &gt;, "Bilder" &lt; img &gt; , "Eingabefelder"
+					&lt; input &gt; nur soviel Platz
+					nehmen, wie sie brauchen.
+				</p>
+
+
+				<h3>Wie sieht der Code eigentlich bis hier her aus?</h3><br>
+				<button onclick="toggleDialog()">Sieh es dir an</button><br><br>
+
+				<div id="overlay" class="d-none" onclick="toggleDialog()">
+
+					<div id="dialog" onclick="event.stopPropagation();">
+						<h1>Echt viel für eine kleine Seite, oder?</h1>
+						<button onclick="toggleDialog()">Schließen</button>
+						<pre id="codeBlock"></pre>
+						<button onclick="toggleDialog()">Schließen</button>
+					</div>
+				</div>
+
+
+		</div>
+	</div>
+</body>
+
+</html>
